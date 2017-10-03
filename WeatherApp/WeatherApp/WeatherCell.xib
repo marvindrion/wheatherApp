@@ -10,40 +10,60 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="weathericons-regular-webfont.ttf">
-            <string>WeatherIcons-Regular</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="Weat">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WeatherCell" customModule="WeatherApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRD-hW-2Dy">
-                    <rect key="frame" x="166" y="323" width="42" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="17"/>
-                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y9J-lu-GDq" userLabel="wheatherIcon">
-                    <rect key="frame" x="5" y="328.5" width="30" height="30"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sunny" translatesAutoresizingMaskIntoConstraints="NO" id="y9J-lu-GDq" userLabel="wheatherIcon">
+                    <rect key="frame" x="5" y="313.5" width="60" height="60"/>
+                    <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="y9J-lu-GDq" secondAttribute="height" multiplier="1:1" id="KPw-67-TA0"/>
-                        <constraint firstAttribute="width" constant="30" id="WCj-it-U6P"/>
+                        <constraint firstAttribute="width" constant="60" id="WCj-it-U6P"/>
                     </constraints>
                 </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="blY-bu-4vb" userLabel="labelStackView">
+                    <rect key="frame" x="65" y="20" width="132.5" height="667"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mardi 06 octobre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgI-Dk-HFK" userLabel="dateLabel">
+                            <rect key="frame" x="0.0" y="0.0" width="132.5" height="333.5"/>
+                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="temp. : 6 °" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-aY-IfP" userLabel="temperatureLabel">
+                            <rect key="frame" x="0.0" y="333.5" width="132.5" height="333.5"/>
+                            <color key="backgroundColor" red="0.94707673788070679" green="0.98658031225204468" blue="0.026538478210568428" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.35672004149999997" green="0.61041796189999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="blY-bu-4vb" firstAttribute="leading" secondItem="y9J-lu-GDq" secondAttribute="trailing" id="2m5-gl-y6N"/>
                 <constraint firstItem="y9J-lu-GDq" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="6wz-b1-aNY"/>
+                <constraint firstItem="blY-bu-4vb" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="QVm-A0-ePw"/>
+                <constraint firstItem="blY-bu-4vb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="iKp-Sr-DaJ"/>
                 <constraint firstItem="y9J-lu-GDq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="moL-1q-NAU"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="dateLabel" destination="KgI-Dk-HFK" id="ABA-e8-gVn"/>
+                <outlet property="temperatureLabel" destination="SrF-aY-IfP" id="zA0-3b-eUa"/>
+                <outlet property="weatherIcon" destination="y9J-lu-GDq" id="XtX-Kg-Q4J"/>
+            </connections>
             <point key="canvasLocation" x="-6" y="-12"/>
         </view>
     </objects>
+    <resources>
+        <image name="Sunny" width="128" height="128"/>
+    </resources>
 </document>

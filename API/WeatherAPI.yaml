@@ -1,0 +1,104 @@
+swagger: '2.0'
+info:
+  description: API for the mobile app WeatherApp
+  version: 0.0.1
+  title: Weather App
+tags:
+  - name: Weather
+    description: Retrieve weather data for selected city
+paths:
+  /forecast:
+    get:
+      tags:
+        - Weather
+      summary: Retrieve weateher data for 5 days for selected city
+      description: Retrieve weateher data for 5 days for selected city
+      operationId: getWeather
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: id
+          description: City identifier
+          required: true
+          type: double
+        - in: query
+          name: appid
+          description: API Key
+          required: true
+          type: string  
+      responses:
+        '200':
+          description: successful operation
+          schema:
+              $ref: '#/definitions/WeatherResponse'
+        '500':
+          description: Server error
+  '/forecast/{id}':
+definitions:
+  WeatherResponse:
+    type: object
+    properties:
+      cod:
+        type: string
+      message:
+        type: double
+      cnt:
+        type: integer
+      list:
+        type: array
+        items:
+          $ref: '#/definitions/FullWeather'
+  FullWeather:
+    type: object
+    properties:
+      dt:
+        type: integer
+      main:
+        type: object
+        properties:
+          temp: 
+            type: float
+          temp_min: 
+            type: float
+          temp_max: 
+            type: float
+          pressure:
+            type:  float
+          sea_level:
+            type:  float
+          grnd_level:
+            type:  float
+          humidity:
+            type:  integer
+          temp_kf:
+            type:  float
+      weather:
+        type: array
+        items: 
+          $ref: '#/definitions/Weather'
+      clouds:
+        type: object
+        properties:
+          all:
+            type: integer
+      wind:
+        type: object
+        properties:
+          speed: 
+            type: double
+          deg: 
+            type: double
+      dt_txt:
+        type: string      
+  Weather:
+    type: object
+    properties:
+      id:
+        type: integer
+      main: 
+        type: string
+      description:
+        type: string
+      icon:
+        type: string

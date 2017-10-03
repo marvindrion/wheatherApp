@@ -6,8 +6,20 @@
 //  Copyright © 2017 Marvin DRION. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class WeatherCell : UITableViewCell {
-    ""
+    
+    @IBOutlet weak var weatherIcon: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    /*
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    */
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WeatherAPI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //SwaggerClientAPI.basePath = "http://api.openweathermap.org/data/2.5/forecast?id=2643743&appid=f541e1c34cc580e7d0c28678466bdd5a"
+        SwaggerClientAPI.basePath = "https://api.openweathermap.org/data/2.5/"
         return true
     }
 
