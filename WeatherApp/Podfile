@@ -8,6 +8,7 @@ target 'WeatherApp' do
 # pod 'PullToRefreshSwift'
 # pod 'MMLocalization'
 pod 'WeatherAPI', :path =>'../API/WeatherAPI.podspec'
+pod 'SDWebImage'
 
   # Pods for WeatherApp
 

@@ -19,7 +19,6 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sunny" translatesAutoresizingMaskIntoConstraints="NO" id="y9J-lu-GDq" userLabel="wheatherIcon">
                     <rect key="frame" x="5" y="313.5" width="60" height="60"/>
-                    <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="y9J-lu-GDq" secondAttribute="height" multiplier="1:1" id="KPw-67-TA0"/>
                         <constraint firstAttribute="width" constant="60" id="WCj-it-U6P"/>
@@ -30,14 +29,12 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mardi 06 octobre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgI-Dk-HFK" userLabel="dateLabel">
                             <rect key="frame" x="0.0" y="0.0" width="132.5" height="333.5"/>
-                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="temp. : 6 °" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-aY-IfP" userLabel="temperatureLabel">
                             <rect key="frame" x="0.0" y="333.5" width="132.5" height="333.5"/>
-                            <color key="backgroundColor" red="0.94707673788070679" green="0.98658031225204468" blue="0.026538478210568428" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -46,7 +43,6 @@
                     <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="0.35672004149999997" green="0.61041796189999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="blY-bu-4vb" firstAttribute="leading" secondItem="y9J-lu-GDq" secondAttribute="trailing" id="2m5-gl-y6N"/>
                 <constraint firstItem="y9J-lu-GDq" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="6wz-b1-aNY"/>

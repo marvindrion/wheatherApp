@@ -8,6 +8,7 @@
 
 import UIKit
 import WeatherAPI
+import SDWebImage
 
 class WeatherViewController: UIViewController {
 
@@ -82,13 +83,12 @@ extension WeatherViewController : UITableViewDataSource {
             fatalError("The dequeued cell is not an instance of WeatherCell.")
         }
         
-        if let image = UIImage(named: "Sunny") {
-            cell.weatherIcon.image = image
-        }
-        
-        
         cell.dateLabel.text = "MARDI TEST fevréier"
         cell.temperatureLabel.text = infos.weatherDescription
+        
+        let iconUrl = "https://openweathermap.org/img/w/" + infos.iconString + ".png"
+        print("iconUrl = ",iconUrl)
+        cell.weatherIcon.sd_setImage(with: URL(string: iconUrl), placeholderImage: UIImage(named: "Sunny"))
         return cell
    }
 }
