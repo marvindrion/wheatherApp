@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8912CC5E8E9209770EA2B5A8 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DA1F2603EECB350360DE93 /* Pods_WeatherApp.framework */; };
 		ED8168C31F839F9D006DD554 /* WeatherInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8168C21F839F9D006DD554 /* WeatherInfos.swift */; };
+		ED8168C51F84E3CC006DD554 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8168C41F84E3CC006DD554 /* Utils.swift */; };
+		ED8168C81F850993006DD554 /* WeatherApp.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED8168C71F850993006DD554 /* WeatherApp.plist */; };
+		ED8168CA1F8509EC006DD554 /* PropertiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8168C91F8509EC006DD554 /* PropertiesManager.swift */; };
 		EDD4A2421F7D470A00259477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4A2411F7D470A00259477 /* AppDelegate.swift */; };
 		EDD4A2441F7D470A00259477 /* WheatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4A2431F7D470A00259477 /* WheatherViewController.swift */; };
 		EDD4A2471F7D470A00259477 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD4A2451F7D470A00259477 /* Main.storyboard */; };
@@ -24,6 +27,9 @@
 		19C65ED34AA6D8E1A4800D77 /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		93DA1F2603EECB350360DE93 /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8168C21F839F9D006DD554 /* WeatherInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfos.swift; sourceTree = "<group>"; };
+		ED8168C41F84E3CC006DD554 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		ED8168C71F850993006DD554 /* WeatherApp.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WeatherApp.plist; sourceTree = "<group>"; };
+		ED8168C91F8509EC006DD554 /* PropertiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesManager.swift; sourceTree = "<group>"; };
 		EDD4A23E1F7D470900259477 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD4A2411F7D470A00259477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDD4A2431F7D470A00259477 /* WheatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +71,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		ED8168C61F85097A006DD554 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				ED8168C71F850993006DD554 /* WeatherApp.plist */,
+				ED8168C91F8509EC006DD554 /* PropertiesManager.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		EDD4A2351F7D470900259477 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +101,7 @@
 		EDD4A2401F7D470A00259477 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				ED8168C61F85097A006DD554 /* Config */,
 				EDD4A25C1F7E7EB200259477 /* Fonts */,
 				EDD4A2411F7D470A00259477 /* AppDelegate.swift */,
 				EDD4A2431F7D470A00259477 /* WheatherViewController.swift */,
@@ -96,6 +112,7 @@
 				EDD4A25A1F7E783E00259477 /* WeatherCell.xib */,
 				EDD4A25F1F7E800C00259477 /* WeatherCell.swift */,
 				ED8168C21F839F9D006DD554 /* WeatherInfos.swift */,
+				ED8168C41F84E3CC006DD554 /* Utils.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -170,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8168C81F850993006DD554 /* WeatherApp.plist in Resources */,
 				EDD4A25E1F7E7F1700259477 /* weathericons-regular-webfont.ttf in Resources */,
 				EDD4A25B1F7E783E00259477 /* WeatherCell.xib in Resources */,
 				EDD4A24C1F7D470A00259477 /* LaunchScreen.storyboard in Resources */,
@@ -207,12 +225,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PullToRefreshSwift/PullToRefreshSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/WeatherAPI/WeatherAPI.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToRefreshSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WeatherAPI.framework",
 			);
@@ -243,7 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8168C51F84E3CC006DD554 /* Utils.swift in Sources */,
 				ED8168C31F839F9D006DD554 /* WeatherInfos.swift in Sources */,
+				ED8168CA1F8509EC006DD554 /* PropertiesManager.swift in Sources */,
 				EDD4A2441F7D470A00259477 /* WheatherViewController.swift in Sources */,
 				EDD4A2421F7D470A00259477 /* AppDelegate.swift in Sources */,
 				EDD4A2601F7E800C00259477 /* WeatherCell.swift in Sources */,
@@ -387,7 +409,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z7D33T6JN;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mdrion.weatherApp.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -404,7 +426,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z7D33T6JN;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mdrion.weatherApp.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

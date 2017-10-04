@@ -15,11 +15,13 @@ open class WeatherAPI: APIBase {
      Retrieve weateher data for 5 days for selected city
      
      - parameter id: (query) City identifier 
+     - parameter units: (query) Temperature unit 
+     - parameter lang: (query) Language 
      - parameter appid: (query) API Key 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getWeather(id: String, appid: String, completion: @escaping ((_ data: WeatherResponse?,_ error: Error?) -> Void)) {
-        getWeatherWithRequestBuilder(id: id, appid: appid).execute { (response, error) -> Void in
+    open class func getWeather(id: String, units: String, lang: String, appid: String, completion: @escaping ((_ data: WeatherResponse?,_ error: Error?) -> Void)) {
+        getWeatherWithRequestBuilder(id: id, units: units, lang: lang, appid: appid).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -39,24 +41,33 @@ open class WeatherAPI: APIBase {
       "icon" : "aeiou",
       "description" : "aeiou",
       "main" : "aeiou",
-      "id" : 5
+      "id" : 4
     } ],
     "main" : {
-      "humidity" : 1
+      "temp" : 1.46581298050294517310021547018550336360931396484375,
+      "temp_min" : 5.962133916683182377482808078639209270477294921875,
+      "grnd_level" : 9.301444243932575517419536481611430644989013671875,
+      "temp_kf" : 2.027123023002321833274663731572218239307403564453125,
+      "humidity" : 3,
+      "pressure" : 2.3021358869347654518833223846741020679473876953125,
+      "sea_level" : 7.061401241503109105224211816675961017608642578125,
+      "temp_max" : 5.63737665663332876420099637471139430999755859375
     },
     "clouds" : {
-      "all" : 5
+      "all" : 7
     },
     "wind" : "{}"
   } ]
 }}]
      
      - parameter id: (query) City identifier 
+     - parameter units: (query) Temperature unit 
+     - parameter lang: (query) Language 
      - parameter appid: (query) API Key 
 
      - returns: RequestBuilder<WeatherResponse> 
      */
-    open class func getWeatherWithRequestBuilder(id: String, appid: String) -> RequestBuilder<WeatherResponse> {
+    open class func getWeatherWithRequestBuilder(id: String, units: String, lang: String, appid: String) -> RequestBuilder<WeatherResponse> {
         let path = "/forecast"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -64,6 +75,8 @@ open class WeatherAPI: APIBase {
         let url = NSURLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "id": id, 
+            "units": units, 
+            "lang": lang, 
             "appid": appid
         ])
         

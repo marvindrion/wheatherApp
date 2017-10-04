@@ -18,8 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        //SwaggerClientAPI.basePath = "http://api.openweathermap.org/data/2.5/forecast?id=2643743&appid=f541e1c34cc580e7d0c28678466bdd5a"
-        SwaggerClientAPI.basePath = "https://api.openweathermap.org/data/2.5/"
+        // Chargement du fichier de propriétés
+        let path = Bundle.main.path(forResource: "WeatherApp", ofType: "plist")
+        let myDict = NSDictionary.init(contentsOfFile: path!)
+        PropertiesManager.sharedInstance.setProperties(source: myDict!)
+        
+        
+        SwaggerClientAPI.basePath = PropertiesManager.sharedInstance.getApiUrl()!
+        
         return true
     }
 

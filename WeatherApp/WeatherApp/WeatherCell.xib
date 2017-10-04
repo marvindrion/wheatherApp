@@ -17,15 +17,21 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sunny" translatesAutoresizingMaskIntoConstraints="NO" id="y9J-lu-GDq" userLabel="wheatherIcon">
-                    <rect key="frame" x="5" y="313.5" width="60" height="60"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconNotFound" translatesAutoresizingMaskIntoConstraints="NO" id="y9J-lu-GDq" userLabel="wheatherIcon">
+                    <rect key="frame" x="10" y="298.5" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="y9J-lu-GDq" secondAttribute="height" multiplier="1:1" id="KPw-67-TA0"/>
                         <constraint firstAttribute="width" constant="60" id="WCj-it-U6P"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 °" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ToZ-Sv-ETk" userLabel="temperatureLabel">
+                    <rect key="frame" x="29" y="353.5" width="22.5" height="313.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="blY-bu-4vb" userLabel="labelStackView">
-                    <rect key="frame" x="65" y="20" width="132.5" height="667"/>
+                    <rect key="frame" x="80" y="20" width="132.5" height="667"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mardi 06 octobre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgI-Dk-HFK" userLabel="dateLabel">
                             <rect key="frame" x="0.0" y="0.0" width="132.5" height="333.5"/>
@@ -33,7 +39,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="temp. : 6 °" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-aY-IfP" userLabel="temperatureLabel">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grand soleil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-aY-IfP" userLabel="descWeatherLabel">
                             <rect key="frame" x="0.0" y="333.5" width="132.5" height="333.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -44,22 +50,26 @@
                 </stackView>
             </subviews>
             <constraints>
-                <constraint firstItem="blY-bu-4vb" firstAttribute="leading" secondItem="y9J-lu-GDq" secondAttribute="trailing" id="2m5-gl-y6N"/>
-                <constraint firstItem="y9J-lu-GDq" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="6wz-b1-aNY"/>
+                <constraint firstItem="blY-bu-4vb" firstAttribute="leading" secondItem="y9J-lu-GDq" secondAttribute="trailing" constant="10" id="2m5-gl-y6N"/>
+                <constraint firstItem="y9J-lu-GDq" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" constant="-15" id="6wz-b1-aNY"/>
+                <constraint firstItem="ToZ-Sv-ETk" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="EB9-Hf-QNz"/>
+                <constraint firstItem="ToZ-Sv-ETk" firstAttribute="top" secondItem="y9J-lu-GDq" secondAttribute="bottom" constant="-5" id="HSx-sv-0H1"/>
                 <constraint firstItem="blY-bu-4vb" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="QVm-A0-ePw"/>
                 <constraint firstItem="blY-bu-4vb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="iKp-Sr-DaJ"/>
-                <constraint firstItem="y9J-lu-GDq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="moL-1q-NAU"/>
+                <constraint firstItem="ToZ-Sv-ETk" firstAttribute="centerX" secondItem="y9J-lu-GDq" secondAttribute="centerX" id="mXd-M5-zm2"/>
+                <constraint firstItem="y9J-lu-GDq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="moL-1q-NAU"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="dateLabel" destination="KgI-Dk-HFK" id="ABA-e8-gVn"/>
-                <outlet property="temperatureLabel" destination="SrF-aY-IfP" id="zA0-3b-eUa"/>
+                <outlet property="descWeatherLabel" destination="SrF-aY-IfP" id="auh-W5-v9p"/>
+                <outlet property="temperatureLabel" destination="ToZ-Sv-ETk" id="Amx-dy-rwU"/>
                 <outlet property="weatherIcon" destination="y9J-lu-GDq" id="XtX-Kg-Q4J"/>
             </connections>
             <point key="canvasLocation" x="-6" y="-12"/>
         </view>
     </objects>
     <resources>
-        <image name="Sunny" width="128" height="128"/>
+        <image name="IconNotFound" width="128" height="128"/>
     </resources>
 </document>

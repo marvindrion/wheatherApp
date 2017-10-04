@@ -23,6 +23,16 @@ paths:
           required: true
           type: double
         - in: query
+          name: units
+          description: Temperature unit
+          required: true
+          type: string
+        - in: query
+          name: lang
+          description: Language
+          required: true
+          type: string  
+        - in: query
           name: appid
           description: API Key
           required: true
@@ -58,21 +68,21 @@ definitions:
         type: object
         properties:
           temp: 
-            type: float
+            type: number
           temp_min: 
-            type: float
+            type: number
           temp_max: 
-            type: float
+            type: number
           pressure:
-            type:  float
+            type:  number
           sea_level:
-            type:  float
+            type:  number
           grnd_level:
-            type:  float
+            type:  number
           humidity:
             type:  integer
           temp_kf:
-            type:  float
+            type:  number
       weather:
         type: array
         items: 

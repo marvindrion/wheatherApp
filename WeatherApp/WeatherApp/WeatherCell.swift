@@ -12,7 +12,9 @@ class WeatherCell : UITableViewCell {
     
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet var descWeatherLabel: UILabel!
+    @IBOutlet var temperatureLabel: UILabel!
+    
     /*
     override func awakeFromNib() {
         super.awakeFromNib()

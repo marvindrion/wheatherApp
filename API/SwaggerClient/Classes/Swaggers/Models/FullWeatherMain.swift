@@ -10,14 +10,28 @@ import Foundation
 
 open class FullWeatherMain: JSONEncodable {
 
+    public var temp: Double?
+    public var tempMin: Double?
+    public var tempMax: Double?
+    public var pressure: Double?
+    public var seaLevel: Double?
+    public var grndLevel: Double?
     public var humidity: Int32?
+    public var tempKf: Double?
 
     public init() {}
 
     // MARK: JSONEncodable
     open func encodeToJSON() -> Any {
         var nillableDictionary = [String:Any?]()
+        nillableDictionary["temp"] = self.temp
+        nillableDictionary["temp_min"] = self.tempMin
+        nillableDictionary["temp_max"] = self.tempMax
+        nillableDictionary["pressure"] = self.pressure
+        nillableDictionary["sea_level"] = self.seaLevel
+        nillableDictionary["grnd_level"] = self.grndLevel
         nillableDictionary["humidity"] = self.humidity?.encodeToJSON()
+        nillableDictionary["temp_kf"] = self.tempKf
 
         let dictionary: [String:Any] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

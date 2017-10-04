@@ -192,7 +192,14 @@ class Decoders {
             let sourceDictionary = source as! [AnyHashable: Any]
             let result = instance == nil ? FullWeatherMain() : instance as! FullWeatherMain
             
+            result.temp = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["temp"] as AnyObject?)
+            result.tempMin = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["temp_min"] as AnyObject?)
+            result.tempMax = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["temp_max"] as AnyObject?)
+            result.pressure = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["pressure"] as AnyObject?)
+            result.seaLevel = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["sea_level"] as AnyObject?)
+            result.grndLevel = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["grnd_level"] as AnyObject?)
             result.humidity = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["humidity"] as AnyObject?)
+            result.tempKf = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["temp_kf"] as AnyObject?)
             return result
         }
 

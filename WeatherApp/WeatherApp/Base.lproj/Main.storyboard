@@ -20,7 +20,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jEh-cw-AYe" userLabel="weatherTableView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.94707673788070679" green="0.98658031225204468" blue="0.026538478210568428" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -35,8 +35,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Météo" id="QIk-IN-Ley">
                         <barButtonItem key="backBarButtonItem" title=" " id="qLm-cd-Ery"/>
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="y5Z-ru-1rK"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="rqf-te-u9S"/>
                     </navigationItem>
                     <connections>
                         <outlet property="weatherTableView" destination="jEh-cw-AYe" id="i4x-rn-Zqp"/>

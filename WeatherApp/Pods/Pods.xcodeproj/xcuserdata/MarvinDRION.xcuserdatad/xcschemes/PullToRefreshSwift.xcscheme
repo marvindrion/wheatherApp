@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3C04F100642461B5E04EA0CE48877F10'
-               BlueprintName = 'WeatherAPI'
+               BlueprintIdentifier = '7E6F568E72F85D34369F5670D38EEBD6'
+               BlueprintName = 'PullToRefreshSwift'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'WeatherAPI.framework'>
+               BuildableName = 'PullToRefreshSwift.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
