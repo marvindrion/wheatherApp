@@ -8,13 +8,13 @@
 
 import UIKit
 
-class WeatherCell : UITableViewCell {
-    
+class WeatherCell: UITableViewCell {
+
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet var descWeatherLabel: UILabel!
     @IBOutlet var temperatureLabel: UILabel!
-    
+
     /*
     override func awakeFromNib() {
         super.awakeFromNib()

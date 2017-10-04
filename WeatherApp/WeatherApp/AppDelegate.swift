@@ -14,18 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
         // Chargement du fichier de propriétés
         let path = Bundle.main.path(forResource: "WeatherApp", ofType: "plist")
         let myDict = NSDictionary.init(contentsOfFile: path!)
         PropertiesManager.sharedInstance.setProperties(source: myDict!)
-        
-        
+
         SwaggerClientAPI.basePath = PropertiesManager.sharedInstance.getApiUrl()!
-        
+
         return true
     }
 
@@ -51,6 +49,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
 }
-

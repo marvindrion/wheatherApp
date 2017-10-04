@@ -85,7 +85,7 @@ open class Popover: UIView {
     self.accessibilityViewIsModal = true
   }
 
-  fileprivate func setOptions(_ options: [PopoverOption]?){
+  fileprivate func setOptions(_ options: [PopoverOption]?) {
     if let options = options {
       for option in options {
         switch option {
@@ -242,7 +242,7 @@ open class Popover: UIView {
         self.blackOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.blackOverlay.frame = inView.bounds
         inView.addSubview(self.blackOverlay)
-        
+
         if showBlackOverlay {
             if let overlayBlur = self.overlayBlur {
                 let effectView = UIVisualEffectView(effect: overlayBlur)
@@ -256,12 +256,12 @@ open class Popover: UIView {
                 self.blackOverlay.alpha = 0
             }
         }
-        
+
         if self.dismissOnBlackOverlayTap {
             self.blackOverlay.addTarget(self, action: #selector(Popover.dismiss), for: .touchUpInside)
         }
     }
-    
+
     self.containerView = inView
     self.contentView = contentView
     self.contentView.backgroundColor = UIColor.clear
@@ -291,18 +291,18 @@ open class Popover: UIView {
       options: UIViewAnimationOptions(),
       animations: {
         self.transform = CGAffineTransform.identity
-      }){ _ in
+      }) { _ in
         self.didShowHandler?()
     }
     UIView.animate(withDuration: self.animationIn / 3,
       delay: 0,
       options: .curveLinear,
-      animations: { 
+      animations: {
         self.blackOverlay.alpha = 1
       }, completion: { _ in
     })
   }
-  
+
   open override func accessibilityPerformEscape() -> Bool {
     self.dismiss()
     return true
@@ -316,7 +316,7 @@ open class Popover: UIView {
         animations: {
           self.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
           self.blackOverlay.alpha = 0
-        }){ _ in
+        }) { _ in
           self.contentView.removeFromSuperview()
           self.blackOverlay.removeFromSuperview()
           self.removeFromSuperview()

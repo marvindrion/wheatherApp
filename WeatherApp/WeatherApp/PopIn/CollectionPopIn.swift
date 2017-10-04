@@ -102,7 +102,7 @@ extension CollectionPopIn: UICollectionViewDataSource {
         let label = self.delegate?.getLabel(object: self.data[indexPath.row])
         choiceButtonCell.choiceLabel.text = label
         choiceButtonCell.backgroundColor = UIColor.white
-        
+
         //Customise l'apparence de la cellule des items selectionnés
         if self.selectedItems != nil {
             for item in self.selectedItems! {

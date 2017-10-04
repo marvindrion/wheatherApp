@@ -6,12 +6,11 @@
 //  Copyright © 2017 Marvin DRION. All rights reserved.
 //
 
-
 class WeatherInfos {
-    var date : String = ""
-    var iconString : String = ""
-    var temperature : String = ""
-    var weatherDescription : String = ""
-    
+    var date: String = ""
+    var iconString: String = ""
+    var temperature: String = ""
+    var weatherDescription: String = ""
+
     public init() {}
 }

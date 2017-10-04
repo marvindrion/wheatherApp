@@ -6,7 +6,6 @@
 //  Copyright © 2017 Marvin DRION. All rights reserved.
 //
 
-
 import UIKit
 
 class ButtonChoiceCell: UICollectionViewCell {
