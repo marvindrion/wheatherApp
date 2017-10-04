@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double PullToRefreshSwiftVersionNumber;
-FOUNDATION_EXPORT const unsigned char PullToRefreshSwiftVersionString[];
+FOUNDATION_EXPORT double PopoverVersionNumber;
+FOUNDATION_EXPORT const unsigned char PopoverVersionString[];
 

@@ -18,18 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYM-ds-GAc" userLabel="selectedCityButton">
+                                <rect key="frame" x="170" y="69" width="34" height="30"/>
+                                <state key="normal" title="Paris"/>
+                                <connections>
+                                    <action selector="selectedCityTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YYb-j2-EAF"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jEh-cw-AYe" userLabel="weatherTableView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jEh-cw-AYe" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="143-wh-qM5"/>
-                            <constraint firstItem="jEh-cw-AYe" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" id="4Dc-A7-8DU"/>
+                            <constraint firstItem="qYM-ds-GAc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="8rP-yM-is2"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jEh-cw-AYe" secondAttribute="trailing" id="E6e-9Z-kqK"/>
                             <constraint firstItem="jEh-cw-AYe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="I0q-Vg-rUf"/>
+                            <constraint firstItem="jEh-cw-AYe" firstAttribute="top" secondItem="qYM-ds-GAc" secondAttribute="bottom" constant="5" id="Lkm-z2-7fo"/>
                             <constraint firstItem="jEh-cw-AYe" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="Vrb-wE-LUk"/>
+                            <constraint firstItem="qYM-ds-GAc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="yIY-Kt-GfU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,6 +46,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="qLm-cd-Ery"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="selectedCityButton" destination="qYM-ds-GAc" id="bxm-Z4-Xpp"/>
                         <outlet property="weatherTableView" destination="jEh-cw-AYe" id="i4x-rn-Zqp"/>
                     </connections>
                 </viewController>

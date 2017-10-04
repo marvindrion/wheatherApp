@@ -1,14 +1,14 @@
 PODS:
-  - Alamofire (4.5.0)
-  - PullToRefreshSwift (3.0.3)
-  - SDWebImage (4.0.0):
-    - SDWebImage/Core (= 4.0.0)
-  - SDWebImage/Core (4.0.0)
+  - Alamofire (4.5.1)
+  - Popover (1.1.0)
+  - SDWebImage (4.1.0):
+    - SDWebImage/Core (= 4.1.0)
+  - SDWebImage/Core (4.1.0)
   - WeatherAPI (0.0.1):
     - Alamofire (~> 4.0)
 
 DEPENDENCIES:
-  - PullToRefreshSwift
+  - Popover
   - SDWebImage
   - WeatherAPI (from `../API/WeatherAPI.podspec`)
 
@@ -17,11 +17,11 @@ EXTERNAL SOURCES:
     :path: ../API/WeatherAPI.podspec
 
 SPEC CHECKSUMS:
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
-  PullToRefreshSwift: 0743b818072bfd7c9464addc2d1b987b131057ca
-  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Popover: 8b4330c16d9e72f1ea8a2f6783d83b8692ae8776
+  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
   WeatherAPI: 2e019b56eddb2353dc3b5ef567e8a84e7422dabe
 
-PODFILE CHECKSUM: a8edf2cfe4cd4e4e477d43b8dd4a1e232663fe9e
+PODFILE CHECKSUM: 55ee93d4b62db1e76d74a8b9db35185ba0cf6442
 
 COCOAPODS: 1.3.1

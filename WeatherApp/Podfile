@@ -9,6 +9,7 @@ target 'WeatherApp' do
 # pod 'MMLocalization'
 pod 'WeatherAPI', :path =>'../API/WeatherAPI.podspec'
 pod 'SDWebImage'
+pod 'Popover'
 
   # Pods for WeatherApp
 

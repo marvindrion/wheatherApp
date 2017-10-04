@@ -70,6 +70,6 @@
         </view>
     </objects>
     <resources>
-        <image name="IconNotFound" width="128" height="128"/>
+        <image name="IconNotFound" width="60" height="60"/>
     </resources>
 </document>

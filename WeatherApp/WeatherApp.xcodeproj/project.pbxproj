@@ -12,6 +12,11 @@
 		ED8168C51F84E3CC006DD554 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8168C41F84E3CC006DD554 /* Utils.swift */; };
 		ED8168C81F850993006DD554 /* WeatherApp.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED8168C71F850993006DD554 /* WeatherApp.plist */; };
 		ED8168CA1F8509EC006DD554 /* PropertiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8168C91F8509EC006DD554 /* PropertiesManager.swift */; };
+		ED8168D21F85183E006DD554 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8168D11F85183E006DD554 /* City.swift */; };
+		ED8168D31F851D83006DD554 /* ButtonChoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8168CE1F8514F3006DD554 /* ButtonChoiceCell.swift */; };
+		ED8168D51F851D83006DD554 /* CollectionPopIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8168CF1F8514F4006DD554 /* CollectionPopIn.swift */; };
+		ED8168D61F851D83006DD554 /* CollectionPopInDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8168CC1F8514F2006DD554 /* CollectionPopInDelegate.swift */; };
+		ED8168D71F851DA6006DD554 /* ButtonChoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED8168CD1F8514F3006DD554 /* ButtonChoiceCell.xib */; };
 		EDD4A2421F7D470A00259477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4A2411F7D470A00259477 /* AppDelegate.swift */; };
 		EDD4A2441F7D470A00259477 /* WheatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4A2431F7D470A00259477 /* WheatherViewController.swift */; };
 		EDD4A2471F7D470A00259477 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD4A2451F7D470A00259477 /* Main.storyboard */; };
@@ -30,6 +35,11 @@
 		ED8168C41F84E3CC006DD554 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		ED8168C71F850993006DD554 /* WeatherApp.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WeatherApp.plist; sourceTree = "<group>"; };
 		ED8168C91F8509EC006DD554 /* PropertiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesManager.swift; sourceTree = "<group>"; };
+		ED8168CC1F8514F2006DD554 /* CollectionPopInDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPopInDelegate.swift; sourceTree = "<group>"; };
+		ED8168CD1F8514F3006DD554 /* ButtonChoiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonChoiceCell.xib; sourceTree = "<group>"; };
+		ED8168CE1F8514F3006DD554 /* ButtonChoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonChoiceCell.swift; sourceTree = "<group>"; };
+		ED8168CF1F8514F4006DD554 /* CollectionPopIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionPopIn.swift; sourceTree = "<group>"; };
+		ED8168D11F85183E006DD554 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		EDD4A23E1F7D470900259477 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD4A2411F7D470A00259477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDD4A2431F7D470A00259477 /* WheatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +90,25 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		ED8168CB1F8514C2006DD554 /* PopIn */ = {
+			isa = PBXGroup;
+			children = (
+				ED8168CE1F8514F3006DD554 /* ButtonChoiceCell.swift */,
+				ED8168CD1F8514F3006DD554 /* ButtonChoiceCell.xib */,
+				ED8168CF1F8514F4006DD554 /* CollectionPopIn.swift */,
+				ED8168CC1F8514F2006DD554 /* CollectionPopInDelegate.swift */,
+			);
+			path = PopIn;
+			sourceTree = "<group>";
+		};
+		ED8168D01F851814006DD554 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED8168D11F85183E006DD554 /* City.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		EDD4A2351F7D470900259477 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +130,8 @@
 		EDD4A2401F7D470A00259477 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				ED8168D01F851814006DD554 /* Model */,
+				ED8168CB1F8514C2006DD554 /* PopIn */,
 				ED8168C61F85097A006DD554 /* Config */,
 				EDD4A25C1F7E7EB200259477 /* Fonts */,
 				EDD4A2411F7D470A00259477 /* AppDelegate.swift */,
@@ -187,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8168D71F851DA6006DD554 /* ButtonChoiceCell.xib in Resources */,
 				ED8168C81F850993006DD554 /* WeatherApp.plist in Resources */,
 				EDD4A25E1F7E7F1700259477 /* weathericons-regular-webfont.ttf in Resources */,
 				EDD4A25B1F7E783E00259477 /* WeatherCell.xib in Resources */,
@@ -225,14 +257,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/PullToRefreshSwift/PullToRefreshSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Popover/Popover.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/WeatherAPI/WeatherAPI.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToRefreshSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Popover.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WeatherAPI.framework",
 			);
@@ -263,12 +295,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8168D31F851D83006DD554 /* ButtonChoiceCell.swift in Sources */,
+				ED8168D51F851D83006DD554 /* CollectionPopIn.swift in Sources */,
+				ED8168D61F851D83006DD554 /* CollectionPopInDelegate.swift in Sources */,
 				ED8168C51F84E3CC006DD554 /* Utils.swift in Sources */,
 				ED8168C31F839F9D006DD554 /* WeatherInfos.swift in Sources */,
 				ED8168CA1F8509EC006DD554 /* PropertiesManager.swift in Sources */,
 				EDD4A2441F7D470A00259477 /* WheatherViewController.swift in Sources */,
 				EDD4A2421F7D470A00259477 /* AppDelegate.swift in Sources */,
 				EDD4A2601F7E800C00259477 /* WeatherCell.swift in Sources */,
+				ED8168D21F85183E006DD554 /* City.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

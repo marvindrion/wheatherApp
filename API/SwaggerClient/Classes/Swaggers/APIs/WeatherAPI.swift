@@ -82,7 +82,6 @@ open class WeatherAPI: APIBase {
         
 
         let requestBuilder: RequestBuilder<WeatherResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
-
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
 

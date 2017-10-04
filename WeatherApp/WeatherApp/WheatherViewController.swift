@@ -15,16 +15,24 @@ class WeatherViewController: UIViewController {
 
     //Outlets
     @IBOutlet var weatherTableView: UITableView!
+    @IBOutlet var selectedCityButton: UIButton!
     
     //Class var
     var weatherInfos : [WeatherInfos] = []
     var currentDay = ""
     var currentColor = UIColor(hexString: "D8D8D8")
     var userLang = ""
+    var collectionPopIn: CollectionPopIn!
+    var citiesArray : [City] = []
+    var selectedCityId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Load cities data
+        loadCities()
+        
+        //Language Management
         if let deviceLanguage = NSLocale.preferredLanguages[0].components(separatedBy: "-").first {
             userLang = deviceLanguage
         }
@@ -32,8 +40,8 @@ class WeatherViewController: UIViewController {
             userLang = "fr"
         }
         
-        // Do any additional setup after loading the view, typically from a nib.
         weatherTableView.register(UINib(nibName: String(describing: WeatherCell.self), bundle: Bundle.main), forCellReuseIdentifier: String(describing: WeatherCell.self))
+        
         if userLang == "fr" {
             self.navigationItem.title = "Météo"
         }
@@ -48,11 +56,18 @@ class WeatherViewController: UIViewController {
         //PullToRefresh
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(getWeather), for: .valueChanged)
-        
         self.weatherTableView.refreshControl = refreshControl
 
+        //Button design
+        selectedCityButton.setTitleColor(UIColor(hexString: "0404B4"), for: .normal)
+        selectedCityButton.layer.borderWidth = 1.5
+        selectedCityButton.layer.borderColor = UIColor.lightGray.cgColor
+        selectedCityButton.contentEdgeInsets = UIEdgeInsetsMake(10,10,10,10)
         
+        //Load weather data
+        selectedCityId = "6455259"
         getWeather()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,35 +75,56 @@ class WeatherViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func loadCities(){
+        let paris = City(id: "6455259", name: "Paris")
+        let london = City(id: "2643743", name: "London")
+        let madrid = City(id: "3117735", name: "Madrid")
+        let berlin = City(id: "2950159", name: "Berlin")
+        let roma = City(id: "3169070", name: "Roma")
+        
+        citiesArray.append(paris)
+        citiesArray.append(london)
+        citiesArray.append(madrid)
+        citiesArray.append(berlin)
+        citiesArray.append(roma)
+    }
+    
+    
     @objc func getWeather() {
-        WeatherAPI.getWeather(id: "2643743", units: PropertiesManager.sharedInstance.getTemperatureUnit()!, lang: userLang, appid: PropertiesManager.sharedInstance.getApiKey()!) { (wr: WeatherResponse?, error: Error?) in
+        print("getWeather cityId : ",selectedCityId)
+        WeatherAPI.getWeather(id: selectedCityId, units: PropertiesManager.sharedInstance.getTemperatureUnit()!, lang: userLang, appid: PropertiesManager.sharedInstance.getApiKey()!) { (wr: WeatherResponse?, error: Error?) in
             if let err = error {
                 print("getWeather ERROR : ",err)
             }
             else{
                 print("getWEATHER SUCCESS")
+                self.weatherInfos = []
                 for fullWeather in (wr?.list)! {
                     let infos = WeatherInfos()
                     
+                    //Load temperature
                     if let temperature = fullWeather.main?.temp {
                         infos.temperature = String(describing: Int(temperature)) + " °"
                     }
-                    
+                    //Load date
                     if let dateString = fullWeather.dtTxt {
                         
                         let df = DateFormatter()
                         df.dateFormat = "YYYY-MM-d HH:m:s"
                         let date = df.date(from: dateString)
                         let sf = DateFormatter()
+                        sf.locale = NSLocale(localeIdentifier: NSLocale.preferredLanguages[0]) as Locale!
                         sf.dateFormat = "cccc d LLLL H"
                         let newDate = sf.string(from: date!)
                         infos.date = newDate + "h"
                     }
                     
                     for weather in fullWeather.weather! {
+                        //Load icon
                         if let icon = weather.icon {
                             infos.iconString = icon
                         }
+                        //Load weather description
                         if let desc = weather.description {
                             infos.weatherDescription = desc
                         }
@@ -101,11 +137,26 @@ class WeatherViewController: UIViewController {
             self.weatherTableView.refreshControl?.endRefreshing()
         }
     }
-
+    
+    @IBAction func selectedCityTapped(_ sender: Any) {
+        print("selectedCity Tapped")
+        
+        self.collectionPopIn = CollectionPopIn(delegate: self,data: citiesArray, options: nil)
+        self.collectionPopIn?.delegate = self
+        
+        
+        //Highlight the selected city
+        for city in citiesArray {
+            if (city.id == self.selectedCityId){
+                self.collectionPopIn?.selectedItems?.append(city)
+            }
+        }
+        //Show the Pop In
+        self.collectionPopIn.showAsDialog()
+        
+    }
 
 }
-
-
 
 extension WeatherViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -119,7 +170,7 @@ extension WeatherViewController : UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: WeatherCell.self), for: indexPath) as? WeatherCell  else {
             fatalError("The dequeued cell is not an instance of WeatherCell.")
         }
-        
+        cell.selectionStyle = .none
         //Set cell infos
         cell.dateLabel.text = infos.date.capitalizingFirstLetter()
         cell.descWeatherLabel.text = infos.weatherDescription.capitalizingFirstLetter()
@@ -156,4 +207,40 @@ extension WeatherViewController : UITableViewDelegate {
         print("SELECTED ROW")
     }
 }
+
+extension WeatherViewController: CollectionPopInDelegate {
+    //CollectionPopinDelegate
+    func didSelectItem(object: Any) {
+        let city = object as? City
+        if city != nil {
+            if (city!.id != selectedCityId){
+                selectedCityId = city!.id
+                selectedCityButton.setTitle(city?.name, for: .normal)
+                getWeather()
+            }
+        }
+        self.collectionPopIn.dismiss()
+    }
+    
+    func getLabel(object: Any) -> String {
+        let city = object as? City
+        
+        if city != nil {
+            return city!.name
+        } else {
+            return "Paris"
+        }
+    }
+    
+    func getId(object: Any) -> String {
+        let city = object as? City
+    
+        if city != nil {
+            return city!.id
+        } else {
+            return "2643743"
+        }
+    }
+}
+
 
