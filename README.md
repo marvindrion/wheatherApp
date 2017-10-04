@@ -1,8 +1,10 @@
-# wheatherApp
+# WeatherApp
 
-Install : pod update / pod install , in  the Podifle directory
+1. Install : pod update / pod install , in  the Podifle directory
 
-Run the .xcworkspace in Xcode 9.0
+2. Run the .xcworkspace in Xcode 9.0
+
+3. Change the Bundle Identifier (anything you want)
 
 Libs used :
 Alamofire (4.5.1) via Swagger,
